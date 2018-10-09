@@ -41,5 +41,5 @@ public class ABLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+// this is just a test
 }

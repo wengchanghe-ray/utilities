@@ -35,9 +35,9 @@ pipeline {
             agent any
 steps {
    // sleep time: 20, unit: "SECONDS"
-                sh './deploy_env.sh'        //这个脚本包括docker的构建（装配代码）和启动
+                sh './deploy_uat.sh'        //这个脚本包括docker的构建（装配代码）和启动
                 echo 'Deploy finished!'
-                sh './test_master.sh'        //这个脚本包括测试（可以集成测试，界面测试等）
+                sh './test_uat.sh'        //这个脚本包括测试（可以集成测试，界面测试等）
                 echo 'Test finished!'
             }
         }

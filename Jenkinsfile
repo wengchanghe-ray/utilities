@@ -12,14 +12,6 @@ pipeline {
                 sh 'rm -rf *'    //可能不太适合。
             }
         }
-        stage('SCM Checkout') {     //从SVN中检出代码。
-            agent any
-            steps {      
-                echo "Check out the project from github..."
-                //git url:"http://github.com/wengchanghe-ray/utilities", branch: "master"
-                checkout([$class: 'GitSCM', branches: [[name: '*/master'], [name: '*/production'], [name: '*/development']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'http://github.com/wengchanghe-ray/utilities']]])
-            }
-        }
         stage('Build/Launch Test') { //这个的意思是：直接启动一个container进行相关
             agent {                               //编译、单元测试、打包的工作。
                 docker { image 'maven:3-alpine' }

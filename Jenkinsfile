@@ -16,8 +16,7 @@ pipeline {
             agent any
             steps {      
                 echo "Check out the project from github..."
-                //git url:"http://github.com/wengchanghe-ray/utilities", branch: "master"
-                checkout([$class: 'GitSCM', branches: [[name: '*/master'], [name: '*/production'], [name: '*/development']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'http://github.com/wengchanghe-ray/utilities']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/uat']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'http://github.com/wengchanghe-ray/utilities']]])
             }
         }
         stage('Build/Launch Test') { //这个的意思是：直接启动一个container进行相关

@@ -18,21 +18,23 @@ pipeline {
             }
             steps {
                 dir('myapp') {
-                    echo "Begin to test..."
+                    echo "Begin to unit test..."
                     sh 'mvn -B package' 
                 }
             }
         }
         stage('Deploy') {
-            agent any
-steps {
-   // sleep time: 20, unit: "SECONDS"
-                sh './deploy_env.sh'        //这个脚本包括docker的构建（装配代码）和启动
-                echo 'Deploy finished!'
-                sh './test_master.sh'        //这个脚本包括测试（可以集成测试，界面测试等）
-                echo 'Test finished!'
-            }
-        }
-    }
+            	agent any
+		steps {
+                	sh './deploy_env.sh'        //这个脚本包括docker的构建（装配代码）和启动
+                	echo 'Deploy finished!'
+                	sh './test_master.sh'        //这个脚本包括测试（可以集成测试，界面测试等）
+			dir('MySeleniumProject') {
+				sh 'mvn -B test'
+			}
+                	echo 'Test finished!'
+            	}
+         }
+     }
 }
 

@@ -37,7 +37,7 @@ public class AppTest
     public void testApp()
     {
     	
-    	System.setProperty("webdriver.gecko.driver", "/home/tomcat/lib/geckodriver");
+    	System.setProperty("webdriver.gecko.driver", "/usr/lib/geckodriver");
     	System.out.println("Logging test");
     	WebDriver driver = new FirefoxDriver();
     	driver.get("http://localhost:48080/myapp-presentation-0.0.1-SNAPSHOT");

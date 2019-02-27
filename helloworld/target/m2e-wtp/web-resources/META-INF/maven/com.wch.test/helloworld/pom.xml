@@ -14,5 +14,47 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-  
+
+    <distributionManagement>
+        <repository>
+            <id>nexus_release</id>
+            <name>For Releases</name>
+            <url>http://172.21.149.32:8082/repository/maven-releases/</url>
+           <!--  <url>http://172.21.149.32:8081/repository/maven-releases/</url>  -->
+           <!--  <url>http://172.21.149.32:8083/nexus/content/repositories/releases/</url>-->
+        </repository>
+        <snapshotRepository>
+            <id>nexus_snapshot</id>
+            <name>For snapshot</name>
+           <url>http://172.21.149.32:8082/repository/maven-snapshots/</url> 
+           <!--  <url>http://172.21.149.32:8081/repository/maven-snapshots/</url> -->
+           <!--  <url>http://172.21.149.32:8083/nexus/content/repositories/snapshots/</url> -->
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.5.1</version>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <serverId>nexus</serverId>
+                   <nexusUrl>http://172.21.149.32:8082/</nexusUrl>
+                   <!--  <nexusUrl>http://172.21.149.32:8082/</nexusUrl> -->
+                   <!--  <nexusUrl>http://172.21.149.32:8081/</nexusUrl> -->
+                    <skipStaging>true</skipStaging>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -6,4 +6,4 @@ if [ -e index.html ]; then
 else 
    echo "no" > result.txt
 fi
-#aa
+#b

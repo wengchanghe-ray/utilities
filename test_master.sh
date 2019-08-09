@@ -1,4 +1,5 @@
 #!/bin/bash
+###no, no , no
 wget http://localhost:48080/myapp-presentation-0.0.1-SNAPSHOT
 if [ -e index.html ]; then
    echo "ok" > result.txt

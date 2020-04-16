@@ -6,5 +6,5 @@ if [ -e index.html ]; then
 else 
    echo "no" > result.txt
 fi
-#1
+#2
 

@@ -3,7 +3,7 @@ name: Monitor Master and Tags
 on:
   push:
     branches:
-      - master  # Trigger on pushes to the master branch
+      - develop  # Trigger on pushes to the master branch
     tags:
       - 'v*'    # Trigger on tags that start with "v"
 

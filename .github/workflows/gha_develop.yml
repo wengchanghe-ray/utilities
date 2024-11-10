@@ -10,7 +10,7 @@ on:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-
+    environment: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,4 +18,8 @@ jobs:
       - name: Display Event Info
         run: |
             echo "Run the workflow. To verfify if github choose the workflow for the branch itself."
+ 
+      - name: Deploy to product environment
+        run: |
+            echo "Since I have already setup the constraints in github settings, it should not deploy develop to production. I will remove the constraints later."
  

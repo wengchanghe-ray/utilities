@@ -10,7 +10,7 @@ on:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    environment: production
+    environment: product
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

@@ -1,0 +1,25 @@
+name: Monitor Master and Tags
+
+on:
+  push:
+    branches:
+      - develop  # Trigger on pushes to the master branch
+    tags:
+      - 'v*'    # Trigger on tags that start with "v"
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    environment: product
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Display Event Info
+        run: |
+            echo "Run the workflow. To verfify if github choose the workflow for the branch itself."
+ 
+      - name: Deploy to product environment
+        run: |
+            echo "Since I have already setup the constraints in github settings, it should not deploy develop to production. I will remove the constraints later."
+ 

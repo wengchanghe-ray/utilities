@@ -1,0 +1,21 @@
+name: Monitor Master and Tags
+
+on:
+  push:
+    branches:
+      - master  # Trigger on pushes to the master branch
+    tags:
+      - 'v*'    # Trigger on tags that start with "v"
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Display Event Info
+        run: |
+            echo "Run the workflow. To verfify if github choose the workflow for the branch itself."
+ 
